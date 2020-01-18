@@ -1,7 +1,9 @@
+import 'package:TPDeveloppementMobile/panierData.dart';
 import 'package:flutter/material.dart';
 import 'package:TPDeveloppementMobile/panierScreen.dart';
 import 'package:TPDeveloppementMobile/detailScreen.dart';
 import 'package:TPDeveloppementMobile/data.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -9,61 +11,64 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(66, 123, 201, 1.0),
-      body: ListView(
-        children: <Widget>[
-          Padding(
+
+    return ScopedModelDescendant<PanierData>(
+      builder: (BuildContext context, Widget child, PanierData model) {
+        return Scaffold(
+          backgroundColor: Color.fromRGBO(66, 123, 201, 1.0),
+          body: ListView(
+          children: <Widget>[
+            Padding(
             padding: EdgeInsets.only(top: 15.0, left: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Image(
-                  image: AssetImage('assets/images/UPHF.png'),
-                  fit: BoxFit.cover,
-                  height: 30.0,
-                  width: 85.0
-                ),
-                Container(
-                  width: 135.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.shopping_basket),
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => PanierScreen()),
-                          );
-                        }
-                      ),
-                    ],
+              Image(
+                image: AssetImage('assets/images/UPHF.png'),
+                fit: BoxFit.cover,
+                height: 30.0,
+                width: 85.0
+              ),
+              Container(
+                width: 135.0,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  IconButton(
+                  icon: Icon(Icons.shopping_basket),
+                  color: Colors.white,
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PanierScreen()),
+                    );
+                  }
                   ),
-                )
+                ],
+                ),
+              )
               ],
             )
-          ),
-          Padding(
+            ),
+            Padding(
             padding: EdgeInsets.only(left: 120.0),
             child: Row(
               children: <Widget>[
-                Text('Delivr\'',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0)),
-                SizedBox(width: 2.0),
-                Text('Écrous',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25.0)),
+              Text('Delivr\'',
+                style: TextStyle(
+                color: Colors.white,
+                fontSize: 25.0)),
+              SizedBox(width: 2.0),
+              Text('Écriiious',
+                style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 25.0)),
               ],
             ),
-          ),
-          SizedBox(height: 30.0),
-          Container(
+            ),
+            SizedBox(height: 30.0),
+            Container(
             height: MediaQuery.of(context).size.height - 148.0,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -73,31 +78,34 @@ class HomeScreen extends StatelessWidget {
               primary: false,
               padding: EdgeInsets.only(left: 25.0, right: 20.0),
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 0.1),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height - 148.0,
-                    child: 
-                    ListView.builder(
-                      itemCount: produits.length,
-                      itemBuilder: (context, index) {
-                        return _listItem(context, index);            
-                      },
-                    )
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: 0.1),
+                child: Container(
+                height: MediaQuery.of(context).size.height - 148.0,
+                child: 
+                ListView.builder(
+                  itemCount: produits.length,
+                  itemBuilder: (context, index) {
+                  return _listItem(context, index, model);            
+                  },
                 )
+                ),
+              )
               ],
             ),
-          )
-        ],
-      ),
-    );
+            )
+          ],
+          ),
+        );
+      });
+    
   }
 
-  Widget _listItem(BuildContext context, int index){
+  Widget _listItem(BuildContext context, int index, PanierData model){
     String imgPath = produits[index].imgPath; 
     String name = produits[index].name; 
     String price = produits[index].price;
+    int id = produits[index].id;
 
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
@@ -149,7 +157,11 @@ class HomeScreen extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.add),
               color: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                print("yyya");
+                model.addProduit(produits[index]);
+
+              },
             ),
           ],
         ),
