@@ -24,19 +24,6 @@ class _PanierScreenState extends State<PanierScreen> {
                   onPressed: () {
                     Navigator.pop(context);
                   }
-                ),
-                Container(
-                  width: 135.0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.shopping_basket),
-                        color: Colors.white,
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
                 )
               ],
             )

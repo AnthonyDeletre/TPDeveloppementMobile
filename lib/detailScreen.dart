@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:TPDeveloppementMobile/data.dart';
+import 'package:TPDeveloppementMobile/panierScreen.dart';
 
 class DetailScreen extends StatelessWidget {
 
   final Produit produit;
+  int count = 1;
 
   DetailScreen({Key key, @required this.produit}) : super(key: key);
 
@@ -22,7 +24,7 @@ class DetailScreen extends StatelessWidget {
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.of(context).pop();
                   }
                 ),
                 Container(
@@ -33,7 +35,12 @@ class DetailScreen extends StatelessWidget {
                       IconButton(
                         icon: Icon(Icons.shopping_basket),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PanierScreen()),
+                          );
+                        }
                       ),
                     ],
                   ),
@@ -41,111 +48,153 @@ class DetailScreen extends StatelessWidget {
               ],
             )
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 160.0),
-            child: Row(
-              children: <Widget>[
-                Image(
-                  image: AssetImage(produit.imgPath),
-                  fit: BoxFit.cover,
-                  height: 75.0,
-                  width: 75.0
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 30.0),
-          Container(
-            height: MediaQuery.of(context).size.height - 148.0,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))
-            ),
-            child: ListView(
-              primary: false,
-              padding: EdgeInsets.only(left: 25.0, right: 20.0),
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 0.1),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height - 148.0,
-                    child: ListView(
-                      children: [
-                        _listItem('assets/images/ecrou-borgne-hexagonal.png', 'Ecrou Borgne Hexagonal', '6.25 €'),
+          Stack(children: [
+            Container(
+              height: MediaQuery.of(context).size.height - 86.5,
+              width: MediaQuery.of(context).size.width,
+              color: Colors.transparent),
+            Positioned(
+              top: 75.0,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0),),
+                    color: Colors.white),
+                height: MediaQuery.of(context).size.height - 148.0,
+                width: MediaQuery.of(context).size.width)),
+            Positioned(
+              top: 30.0,
+              left: (MediaQuery.of(context).size.width / 2) - 100.0,
+              child: Hero(
+                tag: produit.imgPath,
+                child: Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(produit.imgPath),
+                            fit: BoxFit.cover)),
+                    height: 200.0,
+                    width: 200.0))),
+            Positioned(
+                top: 250.0,
+                left: 25.0,
+                right: 25.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(produit.name,
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 20.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(produit.price,
+                            style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 20.0,
+                                color: Colors.grey)),
+                        Padding(
+                          padding: EdgeInsets.only(left: 40.0),
+                          child : 
+                          Container(height: 20.0, color: Colors.grey, width: 1.0)
+                        ),
+                        Container(
+                          width: 125.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17.0),
+                              color: Color.fromRGBO(66, 66, 66, 1.0)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 25.0,
+                                  width: 25.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7.0),
+                                      color: Color.fromRGBO(66, 66, 66, 1.0)),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: Colors.white,
+                                      size: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Text(count.toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 15.0)),
+                              InkWell(
+                                onTap: () {_incrementation();},
+                                child: Container(
+                                  height: 25.0,
+                                  width: 25.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7.0),
+                                      color: Colors.white),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Color.fromRGBO(66, 66, 66, 1.0),
+                                      size: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  ),
-                )
-              ],
-            ),
-          )
+                    SizedBox(height: 20.0),
+                    Container(
+                      width: 350,
+                      height: 220.0,
+                      child:
+                        Text(
+                          produit.description,
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                    ),
+                    SizedBox(height: 20.0),
+                      Padding(
+                        padding: EdgeInsets.only(bottom:0.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                            color: Colors.black
+                          ),
+                          height: 50.0,
+                          child: Center(
+                            child: Text(
+                              'Ajouter au panier',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat'
+                              )
+                            ),
+                          ),
+                        ),
+                      )
+                  ],
+                ))
+                ])
         ],
       ),
     );
   }
 
-  Widget _listItem(String imgPath, String name, String price){
-    return Padding(
-      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-      child: InkWell(
-        onTap: () {
-
-        },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              child: Row(
-                children: [
-                  SizedBox(width: 10.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          produit.name,
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ), 
-                      // Container(
-                      //   child: Row(
-                      //     children: <Widget>[
-                      //       Flexible(
-                      //         child: Text(
-                      //           produit.description,
-                      //           overflow: TextOverflow.clip,
-                      //           softWrap: true,
-                      //           maxLines: 20,
-                      //           style: TextStyle(
-                      //             fontSize: 16.0,
-                      //             fontWeight: FontWeight.bold
-                      //           ),
-                      //         ),
-                      //       )
-                      //     ],
-                      //   )
-                      // ),
-                      Text(
-                        produit.price,
-                        style: TextStyle(
-                          fontSize: 15.0,
-                          color: Colors.grey
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            IconButton(
-              icon: Icon(Icons.clear),
-              color: Colors.red,
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
-    );
+  int _incrementation(){
+    return count++;
   }
 }
