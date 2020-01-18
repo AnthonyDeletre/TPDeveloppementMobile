@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
               Image(
+                //image: AssetImage('assets/images/ecrou-frein.png'),
                 image: AssetImage('assets/images/UPHF.png'),
                 fit: BoxFit.cover,
                 height: 30.0,
@@ -59,7 +60,8 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 25.0)),
               SizedBox(width: 2.0),
-              Text('Écriiious',
+              Text('Écrous!',
+              // todo(faudra suppr le ! )
                 style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -113,7 +115,10 @@ class HomeScreen extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DetailScreen(produit : produits[index])),
+            MaterialPageRoute(builder: (context) => DetailScreen(
+              produit : produits[index]
+              
+              )),
           );
         },
         child: Row(

@@ -15,21 +15,51 @@ class PanierData extends Model{
     }
   }
 
-  void updateProduit(int id, int quantite){
+  String getQuantiteByProduit(int id){
     for (var pp in produits) {
       if(pp.produit.id == id){
-        pp.quantite = quantite;
-        notifyListeners();
-        break;
+          return pp.quantite.toString();
+      }
+    }
+    return "0";
+  }
+
+  void decrementQuantitePP(ProduitPanier pp){
+    if(pp.quantite > 0)
+      pp.quantite--;
+    if(pp.quantite == 0)
+      deleteProduit(pp.produit.id);
+    else
+      notifyListeners();  
+  }
+
+   void incrementQuantitePP(ProduitPanier pp){
+    pp.quantite++;
+    notifyListeners();  
+  }
+
+  void incrementQuantite(int id){
+    for (var pp in produits) {
+      if(pp.produit.id == id){
+          incrementQuantitePP(pp);
+          return;
+      }
+    }
+  }
+
+  void decrementQuantite(int id){
+    for (var pp in produits) {
+      if(pp.produit.id == id){
+          decrementQuantitePP(pp);
+          return;
       }
     }
   }
 
   void addProduit(Produit p){
     for (var pp in produits) {
-      if(pp.produit.id == p.id){ // Produit deja dans le panier
-          updateProduit(pp.produit.id, pp.quantite + 1);
-          notifyListeners();
+      if(pp.produit.id == p.id){
+          incrementQuantitePP(pp);
           return;
       }
     }

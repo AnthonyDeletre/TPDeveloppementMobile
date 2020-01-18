@@ -136,8 +136,16 @@ class _PanierScreenState extends State<PanierScreen> {
                           color: Colors.grey
                         ),
                       ),
+                      Text(
+                        "Quantité: " + model.getQuantiteByProduit(id),
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold
+                        ),
+                      )
                     ],
-                  )
+                  ),
+                  
                 ],
               ),
             ),

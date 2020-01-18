@@ -13,6 +13,8 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    int id = produit.id;
     return ScopedModelDescendant<PanierData>(
       builder: (BuildContext context, Widget child, PanierData model) {
       		return Scaffold(
@@ -121,21 +123,41 @@ class DetailScreen extends StatelessWidget {
 											  borderRadius: BorderRadius.circular(7.0),
 											  color: Color.fromRGBO(66, 66, 66, 1.0)),
 										  child: Center(
-											child: Icon(
+											child: 
+                      IconButton(
+                        icon: Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                        onPressed: () {
+                          model.decrementQuantite(id);
+                        },
+                      ),
+                      /*
+                      Icon(
 											  Icons.remove,
 											  color: Colors.white,
 											  size: 20.0,
 											),
+*/
+
 										  ),
 										),
 									  ),
-									  Text(count.toString(),
+									  Text(
+                      model.getQuantiteByProduit(id),
+                      //pp.quantite.toString(),
+                      //count.toString(),
 										  style: TextStyle(
 											  color: Colors.white,
 											  fontFamily: 'Montserrat',
 											  fontSize: 15.0)),
 									  InkWell(
-										onTap: () {_incrementation();},
+										onTap: () {
+                      //_incrementation();
+                      
+                      },
 										child: Container(
 										  height: 25.0,
 										  width: 25.0,
@@ -143,11 +165,17 @@ class DetailScreen extends StatelessWidget {
 											  borderRadius: BorderRadius.circular(7.0),
 											  color: Colors.white),
 										  child: Center(
-											child: Icon(
-											  Icons.add,
-											  color: Color.fromRGBO(66, 66, 66, 1.0),
-											  size: 20.0,
-											),
+											child: 
+                      IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Color.fromRGBO(66, 66, 66, 1.0),
+                          size: 20.0,
+                        ),
+                        onPressed: () {
+                          model.addProduit(produit); // incremente le compteur si deja ajoute
+                        },
+                      ),
 										  ),
 										),
 									  )
