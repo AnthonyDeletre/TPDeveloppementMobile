@@ -1,4 +1,5 @@
 import 'package:TPDeveloppementMobile/data.dart';
+import 'package:TPDeveloppementMobile/homeScreen.dart';
 import 'package:TPDeveloppementMobile/panierData.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -29,6 +30,48 @@ class _PanierScreenState extends State<PanierScreen> {
                 onPressed: () {
                 Navigator.pop(context);
                 }
+              ),
+              IconButton(
+                icon: Icon(Icons.home),
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                }
+              ),
+              Container(
+                width: 80.0,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      Icon(
+                        Icons.brightness_1,
+                        color: Colors.red,
+                        size: 30
+                      ),
+                      Positioned(
+                        top: 5.0,
+                        right: 11.0,
+                        child: Center(
+                          child: Text(
+                            model.produits.length.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        )
+                      ),
+                    ],
+                  )
+                ],
+                ),
               )
               ],
             )
@@ -47,31 +90,57 @@ class _PanierScreenState extends State<PanierScreen> {
             ),
             SizedBox(height: 30.0),
             Container(
-            height: MediaQuery.of(context).size.height - 148.0,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))
-            ),
-            child: ListView(
-              primary: false,
-              padding: EdgeInsets.only(left: 25.0, right: 20.0),
-              children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 0.1),
-                child: Container(
-                height: MediaQuery.of(context).size.height - 148.0,
-                child: 
-                  ListView.builder(
-                    itemCount: model.produits.length,
-                    itemBuilder: (context, index) {
-                    return _listItem(context, index, model);            
-                    },
+              height: MediaQuery.of(context).size.height - 148.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))
+              ),
+              child: ListView(
+                primary: false,
+                padding: EdgeInsets.only(left: 25.0, right: 20.0),
+                children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(top: 0.1),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        child: Container(
+                        height: MediaQuery.of(context).size.height - 148.0,
+                        child: 
+                          ListView.builder(
+                            itemCount: model.produits.length,
+                            itemBuilder: (context, index) {
+                            return _listItem(context, index, model);            
+                            },
+                          )
+                        ),
+                      ),
+                      Positioned(
+					              top: 580.0,
+                        width: 360.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                          color: Colors.black
+                          ),
+                          height: 50.0,
+                          child: Center(
+                            child: Text(
+                              'Valider votre panier',
+                              style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              )
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   )
                 ),
-              )
-              ],
+                ],
+              ),
             ),
-            )
           ],
           ),
 			);
@@ -163,8 +232,6 @@ class _PanierScreenState extends State<PanierScreen> {
                           ),
                           Text(
                             model.getQuantiteByProduit(id),
-                            //pp.quantite.toString(),
-                            //count.toString(),
                             style: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Montserrat',

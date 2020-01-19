@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           body: ListView(
           children: <Widget>[
             Padding(
-            padding: EdgeInsets.only(top: 15.0, left: 20.0),
+            padding: EdgeInsets.only(top: 15.0, left: 20.0, right: 0.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -31,20 +31,48 @@ class HomeScreen extends StatelessWidget {
                 width: 85.0
               ),
               Container(
-                width: 135.0,
+                width: 80.0,
                 child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  IconButton(
-                  icon: Icon(Icons.shopping_basket),
-                  color: Colors.white,
-                  onPressed: () {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PanierScreen()),
-                    );
-                  }
-                  ),
+                  Stack(
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.shopping_basket),
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PanierScreen()),
+                          );
+                        }
+                      ),
+                      Positioned(
+                        top: 0.0,
+                        right: 0.0,
+                        child: Icon(
+                          Icons.brightness_1,
+                          size: 25.0, 
+                          color: Colors.red
+                        ) 
+                      ),
+                      Positioned(
+                        top: 4.0,
+                        right: 8.0,
+                        child: Center(
+                          child: Text(
+                            model.produits.length.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        )
+                      ),
+                    ],
+                  )
                 ],
                 ),
               )
@@ -52,7 +80,7 @@ class HomeScreen extends StatelessWidget {
             )
             ),
             Padding(
-            padding: EdgeInsets.only(left: 120.0),
+            padding: EdgeInsets.only(left: 130.0),
             child: Row(
               children: <Widget>[
               Text('Delivr\'',
@@ -165,7 +193,6 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 print("yyya");
                 model.addProduit(produits[index]);
-
               },
             ),
           ],

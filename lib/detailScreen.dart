@@ -34,23 +34,51 @@ class DetailScreen extends StatelessWidget {
 						  }
 						),
 						Container(
-						  width: 135.0,
-						  child: Row(
-							mainAxisAlignment: MainAxisAlignment.spaceAround,
-							children: <Widget>[
-							  IconButton(
-								icon: Icon(Icons.shopping_basket),
-								color: Colors.white,
-								onPressed: () {
-								  Navigator.push(
-									context,
-									MaterialPageRoute(builder: (context) => PanierScreen()),
-								  );
-								}
-							  ),
-							],
-						  ),
-						)
+                width: 80.0,
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(Icons.shopping_basket),
+                        color: Colors.white,
+                        onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PanierScreen()),
+                          );
+                        }
+                      ),
+                      Positioned(
+                        top: 0.0,
+                        right: 0.0,
+                        child: Icon(
+                          Icons.brightness_1,
+                          size: 25.0, 
+                          color: Colors.red
+                        ) 
+                      ),
+                      Positioned(
+                        top: 4.0,
+                        right: 8.0,
+                        child: Center(
+                          child: Text(
+                            model.produits.length.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.bold
+                            ),
+                          ),
+                        )
+                      ),
+                    ],
+                  )
+                ],
+                ),
+              )
 					  ],
 					)
 				  ),
@@ -119,22 +147,6 @@ class DetailScreen extends StatelessWidget {
 							SizedBox(height: 20.0),
 							  Padding(
 								padding: EdgeInsets.only(bottom:0.0),
-								// child: Container(
-								//   decoration: BoxDecoration(
-								// 	borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
-								// 	color: Colors.black
-								//   ),
-								//   height: 50.0,
-								//   child: Center(
-								// 	child: Text(
-								// 	  'Ajouter au panier',
-								// 	  style: TextStyle(
-								// 		color: Colors.white,
-								// 		fontFamily: 'Montserrat',
-								// 	  )
-								// 	),
-								//   ),
-								// ),
                 child: Container(
 								  width: 500.0,
 								  height: 50.0,
