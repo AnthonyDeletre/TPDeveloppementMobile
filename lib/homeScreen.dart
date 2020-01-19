@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 25.0)),
               SizedBox(width: 2.0),
-              Text('Écrous!',
+              Text('Écrous',
               // todo(faudra suppr le ! )
                 style: TextStyle(
                 color: Colors.white,

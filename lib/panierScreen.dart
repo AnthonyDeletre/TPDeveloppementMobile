@@ -67,14 +67,6 @@ class _PanierScreenState extends State<PanierScreen> {
                     return _listItem(context, index, model);            
                     },
                   )
-                /*
-                ListView(
-                  children: [
-                  _listItem('assets/images/ecrou-borgne-hexagonal.png', 'Ecrou Borgne Hexagonal', '6.25 €'),
-                  ],
-                ),
-*/
-
                 ),
               )
               ],
@@ -99,11 +91,7 @@ class _PanierScreenState extends State<PanierScreen> {
 
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
-      child: InkWell(
-        onTap: () {
-
-        },
-        child: Row(
+      child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
@@ -136,11 +124,69 @@ class _PanierScreenState extends State<PanierScreen> {
                           color: Colors.grey
                         ),
                       ),
-                      Text(
-                        "Quantité: " + model.getQuantiteByProduit(id),
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold
+                      // Text(
+                      //   "Quantité: " + model.getQuantiteByProduit(id),
+                      //   style: TextStyle(
+                      //     fontSize: 16.0,
+                      //     fontWeight: FontWeight.bold
+                      //   ),
+                      // )
+                      SizedBox(height: 10.0),
+                      Container(
+                        width: 200.0,
+                        height: 35.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50.0),
+                          color: Color.fromRGBO(66, 66, 66, 1.0)),
+                        child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Container(
+                            height: 45.0,
+                            width: 35.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50.0),
+                              color: Color.fromRGBO(66, 66, 66, 1.0)),
+                            child: Center(
+                            child: 
+                            IconButton(
+                              icon: Icon(
+                                Icons.remove,
+                                color: Colors.white,
+                                size: 20.0,
+                              ),
+                              onPressed: () {
+                                model.decrementQuantite(id);
+                              },
+                            ),
+                            ),
+                          ),
+                          Text(
+                            model.getQuantiteByProduit(id),
+                            //pp.quantite.toString(),
+                            //count.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 15.0)),
+                          Container(
+                            height: 45.0,
+                            width: 35.0,
+                            child: Center(
+                            child: 
+                            IconButton(
+                              icon: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                                size: 20.0,
+                              ),
+                              onPressed: () {
+                                model.addProduit(pp.produit); // incremente le compteur si deja ajoute
+                              },
+                            ),
+                            ),
+                          )
+                        ],
                         ),
                       )
                     ],
@@ -159,7 +205,6 @@ class _PanierScreenState extends State<PanierScreen> {
             ),
           ],
         ),
-      ),
     );
   }
 }

@@ -21,7 +21,7 @@ class PanierData extends Model{
           return pp.quantite.toString();
       }
     }
-    return "0";
+    return "ajouter";
   }
 
   void decrementQuantitePP(ProduitPanier pp){

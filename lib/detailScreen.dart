@@ -100,88 +100,6 @@ class DetailScreen extends StatelessWidget {
 										fontFamily: 'Montserrat',
 										fontSize: 20.0,
 										color: Colors.grey)),
-								Padding(
-								  padding: EdgeInsets.only(left: 40.0),
-								  child : 
-								  Container(height: 20.0, color: Colors.grey, width: 1.0)
-								),
-								Container(
-								  width: 125.0,
-								  height: 40.0,
-								  decoration: BoxDecoration(
-									  borderRadius: BorderRadius.circular(17.0),
-									  color: Color.fromRGBO(66, 66, 66, 1.0)),
-								  child: Row(
-									mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-									children: <Widget>[
-									  InkWell(
-										onTap: () {},
-										child: Container(
-										  height: 25.0,
-										  width: 25.0,
-										  decoration: BoxDecoration(
-											  borderRadius: BorderRadius.circular(7.0),
-											  color: Color.fromRGBO(66, 66, 66, 1.0)),
-										  child: Center(
-											child: 
-                      IconButton(
-                        icon: Icon(
-                          Icons.remove,
-                          color: Colors.white,
-                          size: 20.0,
-                        ),
-                        onPressed: () {
-                          model.decrementQuantite(id);
-                        },
-                      ),
-                      /*
-                      Icon(
-											  Icons.remove,
-											  color: Colors.white,
-											  size: 20.0,
-											),
-*/
-
-										  ),
-										),
-									  ),
-									  Text(
-                      model.getQuantiteByProduit(id),
-                      //pp.quantite.toString(),
-                      //count.toString(),
-										  style: TextStyle(
-											  color: Colors.white,
-											  fontFamily: 'Montserrat',
-											  fontSize: 15.0)),
-									  InkWell(
-										onTap: () {
-                      //_incrementation();
-                      
-                      },
-										child: Container(
-										  height: 25.0,
-										  width: 25.0,
-										  decoration: BoxDecoration(
-											  borderRadius: BorderRadius.circular(7.0),
-											  color: Colors.white),
-										  child: Center(
-											child: 
-                      IconButton(
-                        icon: Icon(
-                          Icons.add,
-                          color: Color.fromRGBO(66, 66, 66, 1.0),
-                          size: 20.0,
-                        ),
-                        onPressed: () {
-                          model.addProduit(produit); // incremente le compteur si deja ajoute
-                        },
-                      ),
-										  ),
-										),
-									  )
-									],
-								  ),
-								)
 							  ],
 							),
 							SizedBox(height: 20.0),
@@ -201,23 +119,74 @@ class DetailScreen extends StatelessWidget {
 							SizedBox(height: 20.0),
 							  Padding(
 								padding: EdgeInsets.only(bottom:0.0),
-								child: Container(
-								  decoration: BoxDecoration(
-									borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
-									color: Colors.black
-								  ),
+								// child: Container(
+								//   decoration: BoxDecoration(
+								// 	borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+								// 	color: Colors.black
+								//   ),
+								//   height: 50.0,
+								//   child: Center(
+								// 	child: Text(
+								// 	  'Ajouter au panier',
+								// 	  style: TextStyle(
+								// 		color: Colors.white,
+								// 		fontFamily: 'Montserrat',
+								// 	  )
+								// 	),
+								//   ),
+								// ),
+                child: Container(
+								  width: 500.0,
 								  height: 50.0,
-								  child: Center(
-									child: Text(
-									  'Ajouter au panier',
-									  style: TextStyle(
-										color: Colors.white,
-										fontFamily: 'Montserrat',
-                    
-									  )
-									),
+								  decoration: BoxDecoration(
+									  borderRadius: BorderRadius.circular(50.0),
+									  color: Color.fromRGBO(66, 66, 66, 1.0)),
+								  child: Row(
+									mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+									children: <Widget>[
+										Container(
+										  height: 45.0,
+										  width: 55.0,
+										  child: Center(
+											child: 
+                      IconButton(
+                        icon: Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                          size: 25.0,
+                        ),
+                        onPressed: () {
+                          model.decrementQuantite(id);
+                        },
+                      ),
+										  ),
+										),
+									  Text(
+                      model.getQuantiteByProduit(id),
+										  style: TextStyle(
+											  color: Colors.white,
+											  fontFamily: 'Montserrat',
+											  fontSize: 15.0)),
+										Container(
+										  height: 45.0,
+										  width: 55.0,
+										  child: Center(
+											child: 
+                      IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 25.0,
+                        ),
+                        onPressed: () {
+                          model.addProduit(produit); // incremente le compteur si deja ajoute
+                        },
+                      ),
+										  ),
+										)
+									],
 								  ),
-								),
+								)
 							  )
 						  ],
 						))
