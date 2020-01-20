@@ -1,6 +1,7 @@
 import 'package:TPDeveloppementMobile/data.dart';
 import 'package:TPDeveloppementMobile/homeScreen.dart';
 import 'package:TPDeveloppementMobile/panierData.dart';
+import 'package:TPDeveloppementMobile/FormScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -16,7 +17,7 @@ class _PanierScreenState extends State<PanierScreen> {
     return ScopedModelDescendant<PanierData>(
       builder: (BuildContext context, Widget child, PanierData model) {
         return Scaffold(
-          backgroundColor: Color.fromRGBO(66, 66, 66, 1.0),
+          backgroundColor: Color.fromRGBO(61, 56, 160, 1.0),
           body: ListView(
           children: <Widget>[
             Padding(
@@ -99,6 +100,68 @@ class _PanierScreenState extends State<PanierScreen> {
                 primary: false,
                 padding: EdgeInsets.only(left: 25.0, right: 20.0),
                 children: <Widget>[
+                model.produits.length == 0 ? 
+                Padding(
+                  padding: EdgeInsets.only(top: 0.1),
+                  child: Stack(
+                    children: <Widget>[
+                      Container(
+                        height: MediaQuery.of(context).size.height - 148.0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Image(
+                              image: AssetImage('assets/images/empty.png'),
+                              fit: BoxFit.cover,
+                              height: 430.0,
+                              width: 430.0
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 40.0),
+                              child : Text(
+                                "Votre panier est vide !",
+                                style: TextStyle(
+                                  color: Color.fromRGBO(61, 56, 160, 1.0),
+                                  fontSize: 25.0,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              )
+                            ),
+                            SizedBox(height: 100.0),
+                            Container(
+                            width: 570.0,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => HomeScreen()),
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                                color: Color.fromRGBO(61, 56, 160, 1.0)
+                                ),
+                                height: 50.0,
+                                child: Center(
+                                  child: Text(
+                                    'Retour à vos achats',
+                                    style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat',
+                                    )
+                                  ),
+                                ),
+                              ),
+                            )
+                          )
+                          ]
+                        )
+                      )
+                    ],
+                  )
+                )
+                :
                 Padding(
                   padding: EdgeInsets.only(top: 0.1),
                   child: Stack(
@@ -116,28 +179,36 @@ class _PanierScreenState extends State<PanierScreen> {
                         ),
                       ),
                       Positioned(
-					              top: 580.0,
+					              top: 570.0,
                         width: 360.0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
-                          color: Colors.black
-                          ),
-                          height: 50.0,
-                          child: Center(
-                            child: Text(
-                              'Valider votre panier',
-                              style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              )
+                        child: InkWell(
+                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => FormScreen()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                            color: Color.fromRGBO(61, 56, 160, 1.0)
+                            ),
+                            height: 50.0,
+                            child: Center(
+                              child: Text(
+                                'Valider votre panier',
+                                style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                )
+                              ),
                             ),
                           ),
-                        ),
+                        )
                       )
                     ],
                   )
-                ),
+                )
                 ],
               ),
             ),
@@ -190,32 +261,23 @@ class _PanierScreenState extends State<PanierScreen> {
                         price,
                         style: TextStyle(
                           fontSize: 15.0,
-                          color: Colors.grey
+                          color: Color.fromRGBO(61, 56, 160, 1.0),
+                          fontWeight: FontWeight.bold
                         ),
                       ),
-                      // Text(
-                      //   "Quantité: " + model.getQuantiteByProduit(id),
-                      //   style: TextStyle(
-                      //     fontSize: 16.0,
-                      //     fontWeight: FontWeight.bold
-                      //   ),
-                      // )
                       SizedBox(height: 10.0),
                       Container(
                         width: 200.0,
                         height: 35.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50.0),
-                          color: Color.fromRGBO(66, 66, 66, 1.0)),
+                          color: Colors.black),
                         child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Container(
                             height: 45.0,
                             width: 35.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50.0),
-                              color: Color.fromRGBO(66, 66, 66, 1.0)),
                             child: Center(
                             child: 
                             IconButton(
@@ -266,7 +328,6 @@ class _PanierScreenState extends State<PanierScreen> {
               icon: Icon(Icons.clear),
               color: Colors.red,
               onPressed: () {
-                print("yooo");
                 model.deleteProduit(id);
               },
             ),

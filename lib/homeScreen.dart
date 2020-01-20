@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return ScopedModelDescendant<PanierData>(
       builder: (BuildContext context, Widget child, PanierData model) {
         return Scaffold(
-          backgroundColor: Color.fromRGBO(66, 123, 201, 1.0),
+          backgroundColor: Color.fromRGBO(61, 56, 160, 1.0),
           body: ListView(
           children: <Widget>[
             Padding(
@@ -24,7 +24,6 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
               Image(
-                //image: AssetImage('assets/images/ecrou-frein.png'),
                 image: AssetImage('assets/images/UPHF.png'),
                 fit: BoxFit.cover,
                 height: 30.0,
@@ -135,8 +134,7 @@ class HomeScreen extends StatelessWidget {
     String imgPath = produits[index].imgPath; 
     String name = produits[index].name; 
     String price = produits[index].price;
-    int id = produits[index].id;
-
+    
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
       child: InkWell(
@@ -145,7 +143,6 @@ class HomeScreen extends StatelessWidget {
             context,
             MaterialPageRoute(builder: (context) => DetailScreen(
               produit : produits[index]
-              
               )),
           );
         },

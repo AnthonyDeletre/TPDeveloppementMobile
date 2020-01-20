@@ -18,7 +18,7 @@ class DetailScreen extends StatelessWidget {
     return ScopedModelDescendant<PanierData>(
       builder: (BuildContext context, Widget child, PanierData model) {
       		return Scaffold(
-			  backgroundColor: Color.fromRGBO(66, 66, 66, 1.0),
+			  backgroundColor: Color.fromRGBO(38, 34, 107, 1.0),
 			  body: ListView(
 				children: <Widget>[
 				  Padding(
@@ -88,15 +88,15 @@ class DetailScreen extends StatelessWidget {
 					  width: MediaQuery.of(context).size.width,
 					  color: Colors.transparent),
 					Positioned(
-					  top: 75.0,
+					  top: 45.0,
 					  child: Container(
 						decoration: BoxDecoration(
 							borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0),),
 							color: Colors.white),
-						height: MediaQuery.of(context).size.height - 148.0,
+						height: MediaQuery.of(context).size.height - 130.0,
 						width: MediaQuery.of(context).size.width)),
 					Positioned(
-					  top: 30.0,
+					  top: 0.0,
 					  left: (MediaQuery.of(context).size.width / 2) - 100.0,
 					  child: Hero(
 						tag: produit.imgPath,
@@ -108,7 +108,7 @@ class DetailScreen extends StatelessWidget {
 							height: 200.0,
 							width: 200.0))),
 					Positioned(
-						top: 250.0,
+						top: 220.0,
 						left: 25.0,
 						right: 25.0,
 						child: Column(
@@ -127,7 +127,7 @@ class DetailScreen extends StatelessWidget {
 									style: TextStyle(
 										fontFamily: 'Montserrat',
 										fontSize: 20.0,
-										color: Colors.grey)),
+										color: Color.fromRGBO(61, 56, 160, 1.0))),
 							  ],
 							),
 							SizedBox(height: 20.0),
@@ -144,7 +144,7 @@ class DetailScreen extends StatelessWidget {
 								  ),
 								),
 							),
-							SizedBox(height: 20.0),
+							SizedBox(height: 60.0),
 							  Padding(
 								padding: EdgeInsets.only(bottom:0.0),
                 child: Container(
@@ -152,7 +152,7 @@ class DetailScreen extends StatelessWidget {
 								  height: 50.0,
 								  decoration: BoxDecoration(
 									  borderRadius: BorderRadius.circular(50.0),
-									  color: Color.fromRGBO(66, 66, 66, 1.0)),
+									  color: Colors.black),
 								  child: Row(
 									mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 									children: <Widget>[
