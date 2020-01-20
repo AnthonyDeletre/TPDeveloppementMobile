@@ -1,5 +1,5 @@
 import 'package:scoped_model/scoped_model.dart'; 
-import 'package:TPDeveloppementMobile/data.dart';
+import 'package:DelivrEcrous/data.dart';
 
 class PanierData extends Model{
   
@@ -21,7 +21,7 @@ class PanierData extends Model{
           return pp.quantite.toString();
       }
     }
-    return "ajouter";
+    return "0";
   }
 
   void decrementQuantitePP(ProduitPanier pp){

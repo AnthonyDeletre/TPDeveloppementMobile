@@ -1,5 +1,5 @@
-import 'package:TPDeveloppementMobile/panierData.dart';
-import 'package:TPDeveloppementMobile/validationScreen.dart';
+import 'package:DelivrEcrous/panierData.dart';
+import 'package:DelivrEcrous/validationScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 

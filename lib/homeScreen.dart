@@ -1,8 +1,8 @@
-import 'package:TPDeveloppementMobile/panierData.dart';
+import 'package:DelivrEcrous/panierData.dart';
 import 'package:flutter/material.dart';
-import 'package:TPDeveloppementMobile/panierScreen.dart';
-import 'package:TPDeveloppementMobile/detailScreen.dart';
-import 'package:TPDeveloppementMobile/data.dart';
+import 'package:DelivrEcrous/panierScreen.dart';
+import 'package:DelivrEcrous/detailScreen.dart';
+import 'package:DelivrEcrous/data.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
     String imgPath = produits[index].imgPath; 
     String name = produits[index].name; 
     String price = produits[index].price;
-    
+
     return Padding(
       padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0, bottom: 15.0),
       child: InkWell(

@@ -1,7 +1,7 @@
-import 'package:TPDeveloppementMobile/panierData.dart';
+import 'package:DelivrEcrous/panierData.dart';
 import 'package:flutter/material.dart';
-import 'package:TPDeveloppementMobile/data.dart';
-import 'package:TPDeveloppementMobile/panierScreen.dart';
+import 'package:DelivrEcrous/data.dart';
+import 'package:DelivrEcrous/panierScreen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class DetailScreen extends StatelessWidget {
