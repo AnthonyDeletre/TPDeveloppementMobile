@@ -78,6 +78,18 @@ class HomeScreen extends StatelessWidget {
               ],
             )
             ),
+            Center(
+              child: RichText(
+                text: TextSpan(
+                  style: TextStyle(fontSize: 25.0, fontFamily: "Montserrat"),
+                  children: <TextSpan>[
+                    TextSpan(text: "Delivr'"),
+                    TextSpan(text: "Écrous", style: TextStyle(fontWeight: FontWeight.bold)),
+                  ]
+                ),
+              ),
+            ),
+            /*
             Padding(
             padding: EdgeInsets.only(left: 130.0),
             child: Row(
@@ -96,9 +108,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             ),
-            SizedBox(height: 30.0),
+            */
+            SizedBox(height: 20.0),
             Container(
-            height: MediaQuery.of(context).size.height - 148.0,
+            height: MediaQuery.of(context).size.height - 138.0,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0))
@@ -110,7 +123,7 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 0.1),
                 child: Container(
-                height: MediaQuery.of(context).size.height - 148.0,
+                height: MediaQuery.of(context).size.height - 138.0,
                 child: 
                 ListView.builder(
                   itemCount: produits.length,
