@@ -211,8 +211,4 @@ class DetailScreen extends StatelessWidget {
 
     
   }
-
-  int _incrementation(){
-    return count++;
-  }
 }

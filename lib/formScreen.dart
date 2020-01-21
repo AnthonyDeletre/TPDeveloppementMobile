@@ -92,7 +92,7 @@ class _FormScreenState extends State<FormScreen> {
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
                                 ),
-                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                errorText: _validate ? 'Veuillez remplir ce champ' : null,
                                 fillColor: _validate ? Colors.red : null,
                               ),
                             ),
@@ -105,7 +105,7 @@ class _FormScreenState extends State<FormScreen> {
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
                                 ),
-                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                errorText: _validate ? 'Veuillez remplir ce champ' : null,
                                 fillColor: _validate ? Colors.red : null,
                               ),
                             ),
@@ -118,7 +118,7 @@ class _FormScreenState extends State<FormScreen> {
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
                                 ),
-                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                errorText: _validate ? 'Veuillez remplir ce champ' : null,
                                 fillColor: _validate ? Colors.red : null,
                               ),
                             ),
@@ -131,7 +131,7 @@ class _FormScreenState extends State<FormScreen> {
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
                                 ),
-                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                errorText: _validate ? 'Veuillez remplir ce champ' : null,
                                 fillColor: _validate ? Colors.red : null,
                               ),
                             ),
@@ -144,7 +144,7 @@ class _FormScreenState extends State<FormScreen> {
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
                                 ),
-                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                errorText: _validate ? 'Veuillez remplir ce champ' : null,
                                 fillColor: _validate ? Colors.red : null,
                               ),
                             ),
