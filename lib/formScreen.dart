@@ -10,6 +10,13 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
 
+  final _nom = TextEditingController();
+  final _email = TextEditingController();
+  final _rue = TextEditingController();
+  final _ville = TextEditingController();
+  final _cp = TextEditingController();
+  bool _validate = false;
+
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<PanierData>(
@@ -66,7 +73,7 @@ class _FormScreenState extends State<FormScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.only(left: 30.0,top: 40.0),
+                              padding: EdgeInsets.only(left: 30.0,top: 30.0),
                               child : Text(
                                 "Où veux-tu te faire livrer ?",
                                 style: TextStyle(
@@ -76,54 +83,69 @@ class _FormScreenState extends State<FormScreen> {
                                 ),
                               )
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: 20.0),
                             TextFormField(
+                              controller: _nom,
                               decoration: InputDecoration(
-                                hintText: "Nom",
-                                hintStyle: TextStyle(
+                                labelText: "Nom",
+                                labelStyle: TextStyle(
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
-                                )
+                                ),
+                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                fillColor: _validate ? Colors.red : null,
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: 10.0),
                             TextFormField(
+                              controller: _email,
                               decoration: InputDecoration(
-                                hintText: "Email",
-                                hintStyle: TextStyle(
+                                labelText: "Email",
+                                labelStyle: TextStyle(
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
-                                )
+                                ),
+                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                fillColor: _validate ? Colors.red : null,
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: 10.0),
                             TextFormField(
+                              controller: _rue,
                               decoration: InputDecoration(
-                                hintText: "Rue",
-                                hintStyle: TextStyle(
+                                labelText: "Rue",
+                                labelStyle: TextStyle(
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
-                                )
+                                ),
+                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                fillColor: _validate ? Colors.red : null,
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: 10.0),
                             TextFormField(
+                              controller: _ville,
                               decoration: InputDecoration(
-                                hintText: "Ville",
-                                hintStyle: TextStyle(
+                                labelText: "Ville",
+                                labelStyle: TextStyle(
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
-                                )
+                                ),
+                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                fillColor: _validate ? Colors.red : null,
                               ),
                             ),
-                            SizedBox(height: 40.0),
+                            SizedBox(height: 10.0),
                             TextFormField(
+                              controller: _cp,
                               decoration: InputDecoration(
-                                hintText: "Code Postal",
-                                hintStyle: TextStyle(
+                                labelText: "Code Postal",
+                                labelStyle: TextStyle(
                                   color: Color.fromRGBO(61, 56, 160, 1.0),
                                   fontSize: 20.0
-                                )
+                                ),
+                                errorText: _validate ? 'Veuillez remplir ce champs' : null,
+                                fillColor: _validate ? Colors.red : null,
                               ),
                             ),
                           ]
@@ -134,10 +156,13 @@ class _FormScreenState extends State<FormScreen> {
                         width: 360.0,
                         child: InkWell(
                            onTap: () {
-                            Navigator.push(
+                            if(_validation(_nom.text, _email.text, _rue.text, _ville.text, _cp.text) == false){
+                              model.deleteAllProduit();
+                              Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => ValidationScreen()),
                             );
+                            }
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -188,5 +213,18 @@ class _FormScreenState extends State<FormScreen> {
 			);
       }
     );
+  }
+
+  bool _validation(String _nom, String _email, String _rue, String _ville, String _cp){
+
+    setState(() {
+      _nom.isEmpty || 
+      _email.isEmpty || 
+      _rue.isEmpty ||
+      _ville.isEmpty || 
+      _cp.isEmpty? _validate = true : _validate = false;
+    });
+    
+    return _validate;
   }
 }

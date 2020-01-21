@@ -176,7 +176,7 @@ class HomeScreen extends StatelessWidget {
                         price,
                         style: TextStyle(
                           fontSize: 15.0,
-                          color: Colors.grey
+                          color: Color.fromRGBO(61, 56, 160, 1.0)
                         ),
                       ),
                     ],
@@ -188,7 +188,6 @@ class HomeScreen extends StatelessWidget {
               icon: Icon(Icons.add),
               color: Colors.black,
               onPressed: () {
-                print("yyya");
                 model.addProduit(produits[index]);
               },
             ),

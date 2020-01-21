@@ -15,6 +15,10 @@ class PanierData extends Model{
     }
   }
 
+  void deleteAllProduit(){
+    produits.clear();
+  }
+
   String getQuantiteByProduit(int id){
     for (var pp in produits) {
       if(pp.produit.id == id){
