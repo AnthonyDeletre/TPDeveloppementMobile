@@ -77,17 +77,13 @@ class _PanierScreenState extends State<PanierScreen> {
               ],
             )
             ),
-            Padding(
-            padding: EdgeInsets.only(left: 160.0),
-            child: Row(
-              children: <Widget>[
-              Text('Panier',
+            Center(
+            // padding: EdgeInsets.only(left: 80.0),
+            child: Text('Panier',
                 style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0)),
-              ],
-            ),
             ),
             SizedBox(height: 30.0),
             Container(
@@ -107,8 +103,8 @@ class _PanierScreenState extends State<PanierScreen> {
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height - 148.0,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: ListView(
+                          // crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Image(
                               image: AssetImage('assets/images/empty.png'),
@@ -116,8 +112,8 @@ class _PanierScreenState extends State<PanierScreen> {
                               height: 430.0,
                               width: 430.0
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 40.0),
+                            Center(
+                              //padding: EdgeInsets.only(left: 0.0),
                               child : Text(
                                 "Votre panier est vide !",
                                 style: TextStyle(
