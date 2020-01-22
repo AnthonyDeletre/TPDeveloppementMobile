@@ -230,7 +230,9 @@ class _PanierScreenState extends State<PanierScreen> {
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Container(
+            Expanded(flex: 3,
+            child: 
+              Container(
               child: Row(
                 children: [
                   Hero(
@@ -243,7 +245,8 @@ class _PanierScreenState extends State<PanierScreen> {
                     ),
                   ),
                   SizedBox(width: 10.0),
-                  Column(
+                  Expanded(flex: 1,
+                    child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -316,17 +319,19 @@ class _PanierScreenState extends State<PanierScreen> {
                       )
                     ],
                   ),
-                  
+                  )     
                 ],
               ),
             ),
-            IconButton(
+            ),
+            Expanded(flex: 1,
+            child: IconButton(
               icon: Icon(Icons.clear),
               color: Colors.red,
               onPressed: () {
                 model.deleteProduit(id);
               },
-            ),
+            ))
           ],
         ),
     );

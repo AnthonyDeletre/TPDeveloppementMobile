@@ -162,7 +162,10 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Container(
+            Expanded(
+              flex: 3,
+              child: 
+              Container(
               child: Row(
                 children: [
                   Hero(
@@ -175,28 +178,35 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 10.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        name,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Text(
-                        price,
-                        style: TextStyle(
-                          fontSize: 15.0,
-                          color: Color.fromRGBO(61, 56, 160, 1.0)
-                        ),
-                      ),
-                    ],
+                  Expanded(
+                    flex: 1,
+                    child: 
+                      Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                              name,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold
+                              ),
+                            ),
+                        Text(
+                            price,
+                            style: TextStyle(
+                              fontSize: 15.0,
+                              color: Color.fromRGBO(61, 56, 160, 1.0)
+                            ),
+                          ),
+                      ],
+                    )
                   )
                 ],
               ),
-            ),
+            )
+          ),
+          Expanded(flex: 1,
+          child: 
             IconButton(
               icon: Icon(Icons.add),
               color: Colors.black,
@@ -204,6 +214,7 @@ class HomeScreen extends StatelessWidget {
                 model.addProduit(produits[index]);
               },
             ),
+            )
           ],
         ),
       ),

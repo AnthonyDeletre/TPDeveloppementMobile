@@ -35,6 +35,8 @@ List<Produit> getListProduit(){
   list.add(new Produit(9,'assets/images/ecrou-frein.png', 'Ecrou Frein', '6.25 €', 'Écrous freinés : comportant un système destiné à empêcher un desserrage accidentel par les vibrations'));
   list.add(new Produit(10,'assets/images/ecrou-cage.png', 'Ecrou Cage', '5.50 €', 'Un écrou cage est un écrou carré emprisonné dans une cage munie sur une face de deux pattes précintrées.'));
   list.add(new Produit(11,'assets/images/ecrou-carre.png', 'Ecrou Carré', '5.50 €', 'Ce sont des écrous offrant une prise en clé plus importante. Aujourd’hui ils sont principalement utilisés comme Écrou cage (baies informatiques, carrosserie, etc.), lorsqu’une fois le montage terminé, l’accès à l’écrou devient impossible (montage borgne) et que l’épaisseur de métal est insuffisante pour permettre un taraudage solide. Autrefois ils étaient recommandés pour des usages avec risque de grippage ou permettaient l’emploi d’acier moins résistant.'));
+  list.add(new Produit(12,'assets/images/UPHF.png', 'Ecrou mega long pour test les retours a la ligne', '4.20 €', 'C’est\nun\nécrou\nde\ntest.\nCirculez\ny’a\nrien\nà\nvoir'));
+
 
   return list;
 }
