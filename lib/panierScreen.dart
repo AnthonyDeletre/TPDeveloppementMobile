@@ -160,50 +160,59 @@ class _PanierScreenState extends State<PanierScreen> {
                 :
                 Padding(
                   padding: EdgeInsets.only(top: 0.1),
-                  child: Stack(
+                  child: Column(
+                    
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Positioned(
-                        child: Container(
-                        height: MediaQuery.of(context).size.height - 148.0,
-                        child: 
-                          ListView.builder(
-                            itemCount: model.produits.length,
-                            itemBuilder: (context, index) {
-                            return _listItem(context, index, model);            
-                            },
-                          )
-                        ),
-                      ),
-                      Positioned(
-					              top: 570.0,
-                        width: 360.0,
-                        child: InkWell(
-                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => FormScreen()),
-                            );
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
-                            color: Color.fromRGBO(61, 56, 160, 1.0)
+                      Container(
+                        height: MediaQuery.of(context).size.height*0.7,
+                        child: Padding(
+                            padding: EdgeInsets.only(top: 0.1),
+                            child: ListView.builder(
+
+                              shrinkWrap: true,
+                              itemCount: model.produits.length,
+                              itemBuilder: (context, index) {
+                                return _listItem(context, index, model);            
+                              }
                             ),
-                            height: 50.0,
-                            child: Center(
-                              child: Text(
-                                'Valider votre panier',
-                                style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Montserrat',
-                                )
+
+                          ),
+                        ),
+
+                      Container(
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 3, bottom: 3),
+                              child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => FormScreen()),
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
+                                color: Color.fromRGBO(61, 56, 160, 1.0)
+                                ),
+                                height: 50.0,
+                                child: Center(
+                                  child: Text(
+                                    'Valider votre panier',
+                                    style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Montserrat',
+                                    )
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                      )
+                            ),
+                      ), 
                     ],
-                  )
+                  ),
                 )
                 ],
               ),
