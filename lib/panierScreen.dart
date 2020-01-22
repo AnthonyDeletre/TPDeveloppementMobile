@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:DelivrEcrous/data.dart';
 import 'package:DelivrEcrous/homeScreen.dart';
 import 'package:DelivrEcrous/panierData.dart';
@@ -123,8 +125,9 @@ class _PanierScreenState extends State<PanierScreen> {
                                 ),
                               )
                             ),
-                            SizedBox(height: 100.0),
+                            //SizedBox(height: 100.0),
                             Container(
+                              padding: EdgeInsets.only(top: 15),
                             width: 570.0,
                             child: InkWell(
                               onTap: () {
@@ -167,7 +170,7 @@ class _PanierScreenState extends State<PanierScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        height: MediaQuery.of(context).size.height*0.7,
+                        //height: MediaQuery.of(context).size.height*0.7,
                         child: Padding(
                             padding: EdgeInsets.only(top: 0.1),
                             child: ListView.builder(
@@ -197,12 +200,14 @@ class _PanierScreenState extends State<PanierScreen> {
                                 borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
                                 color: Color.fromRGBO(61, 56, 160, 1.0)
                                 ),
-                                height: 50.0,
+                                height: 60.0,
                                 child: Center(
                                   child: Text(
-                                    'Valider votre panier',
+                                    'Valider votre panier\n' + model.getPrixTotal() + "€",
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                     color: Colors.white,
+                                    
                                     fontFamily: 'Montserrat',
                                     )
                                   ),

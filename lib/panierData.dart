@@ -19,6 +19,14 @@ class PanierData extends Model{
     produits.clear();
   }
 
+  String getPrixTotal(){
+    double sum = 0;
+    for(var pp in produits){
+      sum = sum + double.parse(pp.produit.price.substring(0, pp.produit.price.length - 2));
+    }
+    return sum.toString();
+  }
+
   String getQuantiteByProduit(int id){
     for (var pp in produits) {
       if(pp.produit.id == id){

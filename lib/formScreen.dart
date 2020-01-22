@@ -23,6 +23,7 @@ class _FormScreenState extends State<FormScreen> {
       return Scaffold(
         backgroundColor: Color.fromRGBO(61, 56, 160, 1.0),
         body: ListView(
+          //scrollDirection: Axis.horizontal,
           children: <Widget>[
             Padding(
                 padding: EdgeInsets.only(top: 15.0, left: 20.0),
@@ -37,17 +38,14 @@ class _FormScreenState extends State<FormScreen> {
                         }),
                   ],
                 )),
-            Padding(
-              padding: EdgeInsets.only(left: 130.0),
-              child: Row(
-                children: <Widget>[
+            Center(
+              //padding: EdgeInsets.only(left: 130.0),
+              child:
                   Text('Commande',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 25.0)),
-                ],
-              ),
             ),
             SizedBox(height: 30.0),
             Container(

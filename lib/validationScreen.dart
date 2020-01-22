@@ -17,34 +17,18 @@ class _ValidationScreenState extends State<ValidationScreen> {
         backgroundColor: Color.fromRGBO(61, 56, 160, 1.0),
         body: ListView(
           children: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(top: 15.0, left: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  ],
-                )),
-            Padding(
-              padding: EdgeInsets.only(left: 130.0),
-              child: Row(
-                children: <Widget>[
-                  Text('Commande',
+            Container(
+              padding: EdgeInsets.only(top: 10.0, bottom: 10),
+              child: Center(
+                child: Text('Commande',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 25.0)),
-                ],
               ),
             ),
-            SizedBox(height: 30.0),
             Container(
-              height: MediaQuery.of(context).size.height - 148.0,
+              height: MediaQuery.of(context).size.height - 78.0,
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -52,14 +36,13 @@ class _ValidationScreenState extends State<ValidationScreen> {
                       topRight: Radius.circular(40.0))),
               child: ListView(
                 primary: false,
-                padding: EdgeInsets.only(left: 25.0, right: 20.0),
+                //padding: EdgeInsets.only(left: 25.0, right: 20.0),
                 children: <Widget>[
                   Padding(
                       padding: EdgeInsets.only(top: 0.1),
                       child: Column(
                         children: <Widget>[
                           Container(
-                              //height: MediaQuery.of(context).size.height - 148.0,
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
@@ -69,8 +52,7 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                     fit: BoxFit.cover,
                                     height: 430.0,
                                     width: 430.0),
-                                Padding(
-                                    padding: EdgeInsets.only(left: 40.0),
+                                Center(
                                     child: Text(
                                       "Commande envoyée !",
                                       style: TextStyle(
@@ -79,12 +61,11 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                           fontSize: 25.0,
                                           fontWeight: FontWeight.bold),
                                     )),
-                                Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 25.0, top: 10.0),
+                                Center(
                                   child: Container(
-                                    width: 300,
-                                    height: 100.0,
+                                    padding: EdgeInsets.only(top: 10, bottom: 40, left: 15, right: 15),
+                                    //width: 300,
+                                    //height: 100.0,
                                     child: Text(
                                       "Votre commande vous sera envoyé dans les prochains jours",
                                       textAlign: TextAlign.center,
@@ -95,7 +76,9 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                   ),
                                 ),
                                 Container(
-                                    width: 570.0,
+                                    //width: 570.0,
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.only(left: 25, right: 25),
                                     child: InkWell(
                                       onTap: () {
                                         Navigator.push(

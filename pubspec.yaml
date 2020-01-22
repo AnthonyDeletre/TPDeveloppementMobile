@@ -57,6 +57,7 @@ flutter:
    - assets/images/ecrou-frein.png
    - assets/images/ecrou-cage.png
    - assets/images/ecrou-carre.png
+   - assets/images/1324688769001.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

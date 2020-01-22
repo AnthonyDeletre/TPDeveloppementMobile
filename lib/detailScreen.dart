@@ -113,7 +113,11 @@ class DetailScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 16)),
                   ),
                   Container(
-                    color: Colors.black,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    // color: Colors.black,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
