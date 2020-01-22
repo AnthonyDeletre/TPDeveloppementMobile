@@ -239,7 +239,7 @@ class _PanierScreenState extends State<PanierScreen> {
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Expanded(flex: 3,
+            Expanded(flex: 6,
             child: 
               Container(
               child: Row(
