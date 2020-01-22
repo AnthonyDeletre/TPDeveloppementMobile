@@ -99,7 +99,7 @@ class DetailScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(bottom: 10),
                     child: Text(
-                      produit.price,
+                      produit.price.toString()+ " €",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -141,7 +141,7 @@ class DetailScreen extends StatelessWidget {
                             iconSize: 20,
                             color: Colors.white,
                             onPressed: () {
-                              model.incrementQuantite(id);
+                              model.addProduit(produit);
                             },
                           ),
                         ),

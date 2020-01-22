@@ -170,7 +170,6 @@ class _PanierScreenState extends State<PanierScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        //height: MediaQuery.of(context).size.height*0.7,
                         child: Padding(
                             padding: EdgeInsets.only(top: 0.1),
                             child: ListView.builder(
@@ -236,7 +235,7 @@ class _PanierScreenState extends State<PanierScreen> {
 
     String imgPath = pp.produit.imgPath; 
     String name = pp.produit.name; 
-    String price = pp.produit.price;
+    String price = pp.produit.price.toString()+ " €";
     int id = pp.produit.id;
 
     return Padding(

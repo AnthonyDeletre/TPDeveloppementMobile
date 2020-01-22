@@ -22,7 +22,7 @@ class PanierData extends Model{
   String getPrixTotal(){
     double sum = 0;
     for(var pp in produits){
-      sum = sum + double.parse(pp.produit.price.substring(0, pp.produit.price.length - 2));
+      sum = sum + (pp.quantite * pp.produit.price);
     }
     return sum.toString();
   }

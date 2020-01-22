@@ -36,7 +36,6 @@ class _ValidationScreenState extends State<ValidationScreen> {
                       topRight: Radius.circular(40.0))),
               child: ListView(
                 primary: false,
-                //padding: EdgeInsets.only(left: 25.0, right: 20.0),
                 children: <Widget>[
                   Padding(
                       padding: EdgeInsets.only(top: 0.1),

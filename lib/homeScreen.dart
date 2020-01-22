@@ -89,26 +89,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            /*
-            Padding(
-            padding: EdgeInsets.only(left: 130.0),
-            child: Row(
-              children: <Widget>[
-              Text('Delivr\'',
-                style: TextStyle(
-                color: Colors.white,
-                fontSize: 25.0)),
-              SizedBox(width: 2.0),
-              Text('Écrous',
-              // todo(faudra suppr le ! )
-                style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 25.0)),
-              ],
-            ),
-            ),
-            */
+
             SizedBox(height: 20.0),
             Container(
             height: MediaQuery.of(context).size.height - 138.0,
@@ -146,7 +127,7 @@ class HomeScreen extends StatelessWidget {
   Widget _listItem(BuildContext context, int index, PanierData model){
     String imgPath = produits[index].imgPath; 
     String name = produits[index].name; 
-    String price = produits[index].price;
+    String price = produits[index].price.toString()+ " €";
 
     return Padding(
       padding: EdgeInsets.only(left: 0.0, right: 0.0, top: 15.0, bottom: 15.0),

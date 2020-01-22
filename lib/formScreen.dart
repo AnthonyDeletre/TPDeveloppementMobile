@@ -39,7 +39,6 @@ class _FormScreenState extends State<FormScreen> {
                   ],
                 )),
             Center(
-              //padding: EdgeInsets.only(left: 130.0),
               child:
                   Text('Commande',
                       style: TextStyle(
@@ -64,8 +63,6 @@ class _FormScreenState extends State<FormScreen> {
                       child: Column(
                         children: <Widget>[
                           Container(
-                              //height: MediaQuery.of(context).size.height - 148.0,
-                              //height: MediaQuery.of(context).size.height*0.5,
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
