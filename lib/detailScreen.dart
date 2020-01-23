@@ -48,10 +48,14 @@ class DetailScreen extends StatelessWidget {
                                   );
                                 }),
                             Positioned(
-                                top: 0.0,
-                                right: 0.0,
-                                child: Icon(Icons.brightness_1,
-                                    size: 25.0, color: Colors.red)),
+                              top: 0.0,
+                              right: 0.0,
+                              child: Icon(
+                                Icons.brightness_1,
+                                size: 25.0, 
+                                color: Colors.red
+                              )
+                            ),
                             Positioned(
                                 top: 4.0,
                                 right: 8.0,
@@ -79,45 +83,43 @@ class DetailScreen extends StatelessWidget {
               color: Colors.white,
               padding: EdgeInsets.only(
                 left: 20.0,
-                right: 20.0, /* bottom: 90 */
+                right: 20.0,
               ),
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
                   Hero(
                     tag: produit.imgPath,
-                    child: Image.asset(produit.imgPath),
+                    child: Image.asset(produit.imgPath, width: 250.0, height: 250.0),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Text(
                       produit.name,
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Text(
                       produit.price.toString()+ " €",
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                          color: Colors.blueGrey),
+                          color: Color.fromRGBO(61, 56, 160, 1.0)),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 10),
+                    padding: EdgeInsets.only(bottom: 30),
                     child: Text(produit.description,
                         style: TextStyle(fontSize: 16)),
                   ),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.black,
-                      borderRadius: BorderRadius.all(Radius.circular(10))
+                      borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
-                    // color: Colors.black,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -147,7 +149,8 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: 30.0)
                 ],
               ),
             )

@@ -18,7 +18,7 @@ class _ValidationScreenState extends State<ValidationScreen> {
         body: ListView(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 10.0, bottom: 10),
+              padding: EdgeInsets.only(top: 30.0, bottom: 30),
               child: Center(
                 child: Text('Commande',
                       style: TextStyle(
@@ -49,8 +49,8 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                     image: AssetImage(
                                         'assets/images/delivery.png'),
                                     fit: BoxFit.cover,
-                                    height: 430.0,
-                                    width: 430.0),
+                                    height: 400.0,
+                                    width: 400.0),
                                 Center(
                                     child: Text(
                                       "Commande envoyée !",
@@ -63,8 +63,6 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                 Center(
                                   child: Container(
                                     padding: EdgeInsets.only(top: 10, bottom: 40, left: 15, right: 15),
-                                    //width: 300,
-                                    //height: 100.0,
                                     child: Text(
                                       "Votre commande vous sera envoyé dans les prochains jours",
                                       textAlign: TextAlign.center,
@@ -89,15 +87,8 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(30.0),
-                                                topRight: Radius.circular(30.0),
-                                                bottomLeft:
-                                                    Radius.circular(30.0),
-                                                bottomRight:
-                                                    Radius.circular(30.0)),
-                                            color: Color.fromRGBO(
-                                                61, 56, 160, 1.0)),
+                                            borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                                            color: Color.fromRGBO(61, 56, 160, 1.0)),
                                         height: 50.0,
                                         child: Center(
                                           child: Text('Retour à vos achats',

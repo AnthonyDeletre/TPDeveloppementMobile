@@ -34,34 +34,37 @@ class _PanierScreenState extends State<PanierScreen> {
                 Navigator.pop(context);
                 }
               ),
-              IconButton(
-                icon: Icon(Icons.home),
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                }
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.home),
+              //   color: Colors.white,
+              //   onPressed: () {
+              //     Navigator.push(
+              //     context,
+              //     MaterialPageRoute(builder: (context) => HomeScreen()),
+              //     );
+              //   }
+              // ),
               Container(
-                width: 80.0,
+                width: 100.0,
                 child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
-                      Icon(
-                        Icons.brightness_1,
-                        color: Colors.red,
-                        size: 30
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          color: Colors.red,
+                        ),
+                        width: 70,
+                        height: 25,
                       ),
                       Positioned(
-                        top: 5.0,
-                        right: 11.0,
+                        top: 4.0,
+                        right: 10.0,
                         child: Center(
                           child: Text(
-                            model.produits.length.toString(),
+                            model.getPrixTotal() + " €",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
@@ -80,7 +83,6 @@ class _PanierScreenState extends State<PanierScreen> {
             )
             ),
             Center(
-            // padding: EdgeInsets.only(left: 80.0),
             child: Text('Panier',
                 style: TextStyle(
                 color: Colors.white,
@@ -106,16 +108,14 @@ class _PanierScreenState extends State<PanierScreen> {
                       Container(
                         height: MediaQuery.of(context).size.height - 148.0,
                         child: ListView(
-                          // crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Image(
                               image: AssetImage('assets/images/empty.png'),
                               fit: BoxFit.cover,
-                              height: 430.0,
-                              width: 430.0
+                              height: 400.0,
+                              width: 400.0,
                             ),
                             Center(
-                              //padding: EdgeInsets.only(left: 0.0),
                               child : Text(
                                 "Votre panier est vide !",
                                 style: TextStyle(
@@ -125,7 +125,7 @@ class _PanierScreenState extends State<PanierScreen> {
                                 ),
                               )
                             ),
-                            //SizedBox(height: 100.0),
+                            SizedBox(height: 20.0),
                             Container(
                               padding: EdgeInsets.only(top: 15),
                             width: 570.0,
@@ -164,56 +164,51 @@ class _PanierScreenState extends State<PanierScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 0.1),
                   child: Column(
-                    
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        child: Padding(
-                            padding: EdgeInsets.only(top: 0.1),
-                            child: ListView.builder(
-
-                              shrinkWrap: true,
-                              itemCount: model.produits.length,
-                              itemBuilder: (context, index) {
-                                return _listItem(context, index, model);            
-                              }
-                            ),
-
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 0.1),
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: model.produits.length,
+                            itemBuilder: (context, index) {
+                              return _listItem(context, index, model);            
+                            }
                           ),
                         ),
-
+                      ),
                       Container(
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 3, bottom: 3),
-                              child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => FormScreen()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0), bottomLeft: Radius.circular(30.0), bottomRight: Radius.circular(30.0)),
-                                color: Color.fromRGBO(61, 56, 160, 1.0)
-                                ),
-                                height: 60.0,
-                                child: Center(
-                                  child: Text(
-                                    'Valider votre panier\n' + model.getPrixTotal() + "€",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                    color: Colors.white,
-                                    
-                                    fontFamily: 'Montserrat',
-                                    )
-                                  ),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 3, bottom: 3),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => FormScreen()),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                              color: Color.fromRGBO(61, 56, 160, 1.0)
+                              ),
+                              height: 50.0,
+                              child: Center(
+                                child: Text(
+                                  'Valider votre panier',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Montserrat',
+                                  )
                                 ),
                               ),
                             ),
-                            ),
+                          ),
+                        ),
                       ), 
                     ],
                   ),
