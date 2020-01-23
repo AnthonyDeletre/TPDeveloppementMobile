@@ -112,8 +112,8 @@ class _PanierScreenState extends State<PanierScreen> {
                             Image(
                               image: AssetImage('assets/images/empty.png'),
                               fit: BoxFit.cover,
-                              height: 400.0,
-                              width: 400.0,
+                              height: 350.0,
+                              width: 350.0,
                             ),
                             Center(
                               child : Text(

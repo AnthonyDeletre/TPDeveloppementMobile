@@ -49,8 +49,8 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                     image: AssetImage(
                                         'assets/images/delivery.png'),
                                     fit: BoxFit.cover,
-                                    height: 400.0,
-                                    width: 400.0),
+                                    height: 350.0,
+                                    width: 350.0),
                                 Center(
                                     child: Text(
                                       "Commande envoyée !",
@@ -73,32 +73,30 @@ class _ValidationScreenState extends State<ValidationScreen> {
                                   ),
                                 ),
                                 Container(
-                                    //width: 570.0,
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.only(left: 25, right: 25),
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  HomeScreen()),
-                                        );
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                                            color: Color.fromRGBO(61, 56, 160, 1.0)),
-                                        height: 50.0,
-                                        child: Center(
-                                          child: Text('Retour à vos achats',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontFamily: 'Montserrat',
-                                              )),
-                                        ),
+                                  alignment: Alignment.center,
+                                  padding: EdgeInsets.only(left: 25, right: 25),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                                      );
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                                        color: Color.fromRGBO(61, 56, 160, 1.0)),
+                                      height: 50.0,
+                                      child: Center(
+                                        child: Text('Retour à vos achats',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Montserrat',
+                                            )),
                                       ),
-                                    )),
+                                    ),
+                                  )
+                                ),
                                 Container(
                                   height: 20,
                                 )
